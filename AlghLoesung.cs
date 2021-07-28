@@ -11,6 +11,7 @@ namespace Sudoku_v._1._0
     {
         private List<List<sbyte>> list2D = new List<List<sbyte>>();
         public bool falshInput = false;
+        public bool combinationFindet = false;
         public sbyte possibilities = 0;
 
         public AlghLoesung() { }
@@ -232,13 +233,16 @@ namespace Sudoku_v._1._0
                             if (tryHard(temp, index, copyList))
                             {
                                 copyList[index] = temp;
+                                Console.WriteLine("before");
                                 //checkListConsole(create2DListFromLineList(copyList));
                                 if (!CheckOnEmpty(create2DListFromLineList(copyList))) 
                                 {
+                                    Console.WriteLine("after");
                                     possibilities++;
                                     if (possibilities > 1)
                                        return;
                                     this.list2D = new List<List<sbyte>>(create2DListFromLineList(copyList));
+                                    combinationFindet = true;
                                     temp++;
                                     if (temp > 9)
                                     {

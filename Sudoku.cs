@@ -119,7 +119,7 @@ namespace Sudoku_v._1._0
                 {
                     lbDifficulty.Text = "Niveau:  " + CheckDificutllty();
                     AlghLoesung alghEasyNiv = new AlghLoesung(list2D);
-                    if (alghEasyNiv.falshInput)
+                    if (alghEasyNiv.falshInput && !alghEasyNiv.combinationFindet)
                         lbAnotation.Text = "Falsche Eingabe";
                     else
                     {   // here we go, if inputed data was right
@@ -532,7 +532,7 @@ namespace Sudoku_v._1._0
                 lbAnotation.Text = "Spieldauer: " + countTime.ToString(@"hh\:mm\:ss");
             }
         }
-
+        
         private void textBoxTextChange(object sender, EventArgs e)
         {
             if ( itemMenu == 1 && gameStatus == false)
@@ -582,7 +582,7 @@ namespace Sudoku_v._1._0
         }
 
         private void resizeVertical(object sender, EventArgs e)
-        {/*
+        {
             if (!windowVertical)
             {
                 this.ClientSize = new System.Drawing.Size(430, 700);
@@ -595,7 +595,7 @@ namespace Sudoku_v._1._0
                 windowVertical = false;
                 flowLayoutPanel1.Visible = false;
             }
-       */ }
+        }
 
         private void onSelectedTextBox(object sender, EventArgs e)
         {
